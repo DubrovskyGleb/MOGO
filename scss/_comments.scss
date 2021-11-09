@@ -1,0 +1,25 @@
+.comments-slider{
+    background-color: $lightGrey;
+    &__container{
+        @include adaptiv-value("padding-top", 70, 35, 1);
+        @include adaptiv-value("padding-bottom", 70, 35, 1);
+    }
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid $cyan;
+        @include adaptiv-value("min-width", 150, 75, 1);
+        @include adaptiv-value("min-height", 150, 75, 1);
+        i:before{
+            @include adaptiv-value("font-size", 64, 32, 1);
+        }
+    }
+}
+
+@media(max-width: 480px){
+    .comments-slider__icon{
+        max-width: 75px;
+        max-height: 75px;
+    }
+}

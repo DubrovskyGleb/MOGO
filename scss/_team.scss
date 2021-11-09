@@ -1,0 +1,208 @@
+.team__container{
+    max-width: 1200px;
+    margin: 0 auto;
+    @include adaptiv-value("padding-top", 90, 40, 1);
+    @include adaptiv-value("padding-bottom", 190, 35, 1);
+}
+
+.team__container._animateForTouch{
+    @include adaptiv-value("padding-bottom", 110, 35, 1);
+}
+
+@media(max-width: 1240px){
+    .team__container{
+        @include adaptiv-value("padding-right", 50, 20, 1);
+        @include adaptiv-value("padding-left", 50, 20, 1);
+    }
+}
+
+.team-card{
+    max-height: 470px;
+    position: relative;
+    &__image img{
+        object-position: top;
+    }
+    &__title{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        bottom: -80px;
+    }
+    &__name{
+        margin-bottom: 7px;
+    }
+    &__front{
+        transition: all 0.6s ease 0s;
+    }
+}
+
+.team-card__content._animateForHover:hover{ 
+    transform: translate(-10px, -10px);
+    & .base-card__front{
+        opacity: 1;
+    }
+}
+
+._animateForTouch{
+    & .team-card{
+        &__front{
+            opacity: 1;
+            height: 77px;
+            bottom: 0;
+            top: auto;
+            padding: 20px 0 20px 0;
+            transition: all 0.6s ease 0s;
+            justify-content: space-between;
+            overflow: hidden;
+            &._active{
+                height: 100%;
+            }
+        }
+        &__title{
+            display: none;
+        }
+        &__name{
+            color: #fff;
+            position: relative;
+            &::before{
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: #fff;
+                position: absolute;
+                bottom: -4px;
+            }
+        }
+        &__profession{
+            color: #fff;
+        }
+    }
+}
+
+.team-contacts{
+    display: flex;
+    background-color: $orange;
+    &__item{
+        &:not(:last-child){
+            border-right: 1px solid $red;
+        }
+        &:hover{
+            background-color: $red;
+            transition: all 0.4s ease 0s;
+        }
+        &:hover i{
+            color: #fff;
+        }
+    }
+    i{
+        font-size: 23px;
+        color: $red;
+    }
+    a{
+        padding: 10px;
+        display: flex;
+    }
+}
+
+._animateForTouch .team-contacts{
+    margin-bottom: 180px;
+    margin-top: 50px;
+}
+
+.front-title{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media(max-width: 1200px){
+    .team-card{
+        max-height: 360px;
+    }
+
+    ._animateForTouch .team-contacts{
+        margin-bottom: 125px;
+    }
+}
+
+@media(max-width: 950px){
+    .team__content{
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        grid-row-gap: 20px;
+    }
+
+    .team-card{
+        max-height: 300px;
+    }
+
+    .team-card:nth-child(2){
+        grid-row-end: span 2;
+        max-height: 620px;
+    }
+
+    ._animateForTouch .team-contacts{
+        margin-bottom: 85px;
+    }
+
+    ._animateForTouch .team-card:nth-child(2) .team-contacts{
+        margin-bottom: 270px;
+    }
+}
+
+@media(max-width: 850px){
+    .team-card{
+        max-height: 250px;
+    }
+
+    .team-card:nth-child(2){
+        grid-row-end: span 2;
+        max-height: 520px;
+    }
+
+    ._animateForTouch .team-card:nth-child(2) .team-contacts{
+        margin-bottom: 210px;
+    }
+}
+
+@media(max-width: 700px){
+    .team__content{
+        grid-template: repeat(3, 1fr) / 1fr;
+    }
+
+    .team-card{
+        max-height: 470px;
+    }
+
+    .team-card:nth-child(2){
+        grid-row-end: span 1;
+        max-height: 470px;
+    }
+
+    ._animateForTouch .team-contacts{
+        margin-bottom: 180px;
+    }
+
+    ._animateForTouch .team-card:nth-child(2) .team-contacts{
+        margin-bottom: 180px;
+    }
+}
+
+@media(max-width: 540px){
+    .team-card{
+        max-height: 340px;
+    }
+
+    .team-card:nth-child(2){
+        max-height: 340px;
+    }
+
+    ._animateForTouch .team-contacts{
+        margin-bottom: 115px;
+    }
+
+    ._animateForTouch .team-card:nth-child(2) .team-contacts{
+        margin-bottom: 115px;
+    }
+}

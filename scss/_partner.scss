@@ -1,0 +1,31 @@
+.partner{
+    background-color: $lightGrey;
+    &__wrapper{
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+    }
+    &__container{
+        max-width: 1200px;
+        margin: 0 auto;
+        @include adaptiv-value("padding-top", 50, 30, 1);
+        @include adaptiv-value("padding-bottom", 50, 30, 1);
+        overflow: hidden;
+    }
+}
+
+@media(max-width: 1300px){
+    .partner__wrapper{
+        @include adaptiv-value("padding-right", 70, 40, 1);
+        @include adaptiv-value("padding-left", 70, 40, 1);
+    }
+}
+
+.partner-slider{
+    &__slide{
+        border-radius: 10px;
+        img{
+            max-width: 100%;
+        }
+    }
+}

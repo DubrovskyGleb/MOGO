@@ -1,0 +1,183 @@
+.gallery{
+    &__header{
+        @include adaptiv-value("padding-right", 50, 20, 1);
+        @include adaptiv-value("padding-left", 50, 20, 1);
+        @include adaptiv-value("padding-top", 90, 40, 1);
+    }
+    &__content{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    }
+}
+
+.gallery-card{
+    max-height: 25vw;
+    position: relative;
+    &__image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__front{
+        padding: 20px;
+        i{
+            font-size: 30px;
+            color: #fff;
+        }
+    }
+    &__content{
+        align-items: center;
+        justify-content: center;
+        
+    }
+    &__title{
+        margin: 15px 0px 3px 0px;
+        position: relative;
+        font-weight: bold;
+    }
+    &__description{
+        font-family: $robotoI;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #fff;
+        text-align: center;
+    }
+    &__link{
+        background-color: $orange;
+        padding: 10px 12px;
+        margin-top: 15px;
+        &:hover{
+            background-color: $red;
+            color: #fff;
+            transition: all 0.4s ease 0s;
+        }
+    }
+}
+
+.full-flex{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    &__wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.gallery-card:nth-child(3){
+    grid-row-end: span 2;
+    min-height: 100%;
+}
+
+.gallery-card._animateForHover{
+    & .gallery-card{
+        &__wrapper{
+            height: auto;
+        }
+        &__content{
+            flex: 0 1 auto;
+        }
+    } 
+}
+
+.gallery-card._animateForHover:hover{ 
+    & .base-card__front{
+        opacity: 1;
+    }
+}
+
+.gallery-card._animateForTouch{
+    & .gallery-card{
+        &__front{
+            opacity: 1;
+            height: 55px;
+            top: auto;
+            bottom: 0;
+            padding: 0px 20px;
+            background-image: linear-gradient(25.0deg, rgba(252,227,138,0.8) 0%, rgba(243,129,129,0.8) 100%);
+            overflow: hidden;
+            justify-content: flex-start;
+            &._active{
+                height: 100%;
+            }
+            i{
+                display: none;
+            }
+        }
+        &__title{
+            margin: 15px 0px 20px 0px;
+            &::before{
+                content: '';
+                width: 100%;
+                height: 2px;
+                background-color: #fff;
+                position: absolute;
+                bottom: -4px;
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px){
+    .gallery{
+        &__content{
+            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        }
+    }
+    
+    .gallery-card:nth-child(6){
+        grid-column-end: span 2;
+    }
+}
+
+@media(max-width: 940px){
+    .gallery{
+        &__content{
+            grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+        }
+    }
+
+    .gallery-card{
+        max-height: 50vw;
+    }
+
+    .gallery-card:nth-child(3){
+        grid-row-end: span 1;
+    }
+
+    .gallery-card:nth-child(5){
+        grid-column-end: span 2;
+    }
+
+    .gallery-card:nth-child(6){
+        grid-column-end: span 1;
+    }
+}
+
+@media(max-width: 600px){
+    .gallery{
+        &__content{
+            grid-template: repeat(7, 1fr) / 1fr;
+        }
+    }
+    .gallery-card:nth-child(5){
+        grid-column-end: span 1;
+    }
+}
+
+@media(max-width: 540px){
+    .gallery-card{
+        max-height: 70vw;
+    }
+}
+
+@media(max-width: 480px){
+    .gallery-card{
+        max-height: 100vw;
+    }
+}

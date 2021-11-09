@@ -1,0 +1,83 @@
+.design{
+    width: 100%;
+    height: auto;
+    background-image: url("../img/design/mountain.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__container{
+       padding-bottom: 0px;
+    }
+    &__content{
+        display: flex;
+        flex: 1 1 auto;
+        
+        margin-top: 45px;
+        justify-content: center;
+    }
+}
+
+.design-image{
+    &__ipad{
+        display: flex;
+        align-items: flex-end;
+        padding-right: 75px;
+        position: relative;
+        img{
+            max-width: 100%;
+        }
+    }
+    &__iphone{
+        position: absolute;
+        bottom: -90px;
+        right:-75px;
+    }
+}
+
+@supports (background-image: url("../img/design/mountain.webp")) {
+    .design {
+      background-image: url("../img/design/mountain.webp");
+    }
+}
+
+@media(max-width: 740px){
+    .design-image{
+        &__iphone{
+            right: -16px;
+        }
+    }
+}
+
+@media(max-width: 660px){
+    .design-image{
+        &__iphone{
+            right: -16px;
+        }
+    }
+}
+
+@media(max-width: 620px){
+    .design-image{
+        &__iphone{
+            width: calc(100vw * 0.45);
+            bottom: -50px;
+        }
+    }
+}
+
+@media(max-width: 530px){
+    .design-image{
+        &__iphone{
+            width: calc(100vw * 0.4);
+            // bottom: -50px;
+        }
+    }
+}
+
+@media(max-width: 480px){
+    .design-image{
+        &__ipad{
+           padding-right: 50px;
+        }
+    }
+}

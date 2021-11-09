@@ -1,0 +1,54 @@
+.map{
+    max-width: 100%;
+    height: auto;
+    background-image: url("../img/map/map.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__container{
+        max-width: 1200px;
+        margin: 0 auto;
+        @include adaptiv-value("padding-top", 51, 35, 1);
+        @include adaptiv-value("padding-bottom", 51, 35, 1);
+    }
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    &__link{
+        font-family: $montB;
+        text-transform: uppercase;
+        color: $red;
+        margin-top: 50px;
+        // @include adaptiv-value("margin-top", 50, 30, 1);
+        @include adaptiv-value("margin-bottom", 21, 10, 1);
+        @include adaptiv-value("font-size", 24, 18, 1);
+    }
+    &__icon{
+        position: absolute;
+    }
+}
+
+@keyframes location {
+    0%{
+        transform: scale(1, 1);
+    }
+    50%{
+        transform: scale(2, 2);
+    }
+    100%{
+        transform: scale(1, 1);
+    }
+}
+
+.map__link:hover + .map__icon{
+    animation: location .6s linear 0s;
+}
+
+@supports (background-image: url("../img/map/map.webp")) {
+    .map {
+      background-image: url("../img/map/map.webp");
+    }
+}

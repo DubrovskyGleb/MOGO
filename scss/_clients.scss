@@ -1,0 +1,118 @@
+.clients{
+    width: 100%;
+    height: auto;
+    background-image: url("../img/clients/mountain.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include adaptiv-value("margin-top", 30, 0, 1);
+    }
+}
+
+@supports (background-image: url("../img/clients/mountain.webp")) {
+    .clients {
+      background-image: url("../img/clients/mountain.webp");
+    }
+}
+
+.clients-card{
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
+    @include adaptiv-value("padding-top", 70, 55, 1);
+    &__image{
+        margin-right: 30px;
+        min-width: 110px;
+        img{
+            max-width: 100%;
+        }
+    }
+    &__name{
+        margin: 12px 0px 9px 0px;
+    }
+    &__profession{
+        margin-bottom: 10px;
+    }
+    &__profession > span{
+        color: $accentText;
+    }
+    &__comment{
+        margin-top: 20px;
+    }
+}
+
+@media(max-width: 1200px){
+    .clients-card{
+        padding-right: 0px;
+        &:nth-child(2n+1){
+            padding-left: 0px;
+        }
+        &:nth-child(2n+2){
+            padding-left: 20px;
+        }
+    }
+}
+
+@media(max-width: 1050px){
+    .clients-card{
+        &__image{
+            min-width: 90px;
+        }
+    }
+}
+
+@media(max-width: 850px){
+    .clients__content{
+        grid-template-columns: 1fr;
+    }
+
+    .clients-card{
+        justify-content: center;
+        &__image{
+            min-width: 70px;
+        }
+        &:nth-child(2n+2){
+            padding-left: 0px;
+        }
+        &__comment{
+            max-width: 450px;
+        }
+    }
+}
+
+@media(max-width: 600px){
+    .clients-card{
+        &__image{
+            margin-right: 20px;
+        }
+    }
+}
+
+@media(max-width: 520px){
+    .clients-card{
+        &__image{
+            position: relative;
+            min-width: 1px;
+            margin-right: 0px;
+            img{
+                position: absolute;
+                min-width: 70px;
+            }
+        }
+        &__name{
+            margin-left: 85px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        &__profession{
+            margin-left: 85px;
+        }
+        &__line{
+            margin-left: 85px;
+            height: 2px;
+        }
+    }
+}
